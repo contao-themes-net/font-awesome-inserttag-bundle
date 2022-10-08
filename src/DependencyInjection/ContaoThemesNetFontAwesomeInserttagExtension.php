@@ -7,12 +7,10 @@ declare(strict_types=1);
  *
  * Copyright (c) 2022 pdir / digital agentur // pdir GmbH
  *
- * @package    bootstrap-icons-inserttag
+ * @package    font-awesome-inserttag-bundle
  * @link       https://github.com/contao-themes-net/bootstrap-icons-inserttag
  * @license    LGPL-3.0-or-later
  * @author     Mathias Arzberger <develop@pdir.de>
- * @author     Philipp Seibt <develop@pdir.de>
- * @author     Christian Mette <develop@pdir.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -34,7 +32,7 @@ class ContaoThemesNetFontAwesomeInserttagExtension extends Extension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../../config')
+            new FileLocator(__DIR__.'/../../config')
         );
 
         $loader->load('services.yml');

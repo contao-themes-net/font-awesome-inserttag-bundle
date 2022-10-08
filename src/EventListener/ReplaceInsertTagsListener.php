@@ -59,7 +59,7 @@ class ReplaceInsertTagsListener
      *
      * @return string the html code
      */
-    private function replaceIconInsertTag(string $tag)
+    private function replaceIconInsertTag(string $tag): string
     {
         extract($this->fontAwesomeConfig);
 
