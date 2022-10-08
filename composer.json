@@ -1,0 +1,74 @@
+{
+    "name": "contao-themes-net/font-awesome-inserttag-bundle",
+    "type": "contao-bundle",
+    "description": "Font Awesome Inserttag Bundle for Contao 4 and 5",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+      {
+        "name": "Webdesign für Dresden",
+        "homepage": "https://pdir.de",
+        "email" : "develop@pdir.de",
+        "role" : "Developer"
+      }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "contao/core-bundle": "^4.13 || ^5.0"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "doctrine/doctrine-cache-bundle": "^1.3",
+        "contao/easy-coding-standard": "^3.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message-factory": "^1.0.2",
+        "phpunit/phpunit": "^5.7.26 || ^9.5",
+        "symfony/phpunit-bridge": "^3.2"
+    },
+    "extra": {
+        "contao-manager-plugin": "ContaoThemesNet\\FontAwesomeInserttagBundle\\ContaoManager\\Plugin"
+    },
+    "autoload": {
+        "psr-4": {
+            "ContaoThemesNet\\FontAwesomeInserttagBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ContaoThemesNet\\FontAwesomeInserttagBundle\\Tests\\": "tests/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/contao-themes-net/font-awesome-inserttag-bundle/issues",
+        "source": "https://github.com/contao-themes-net/font-awesome-inserttag-bundle",
+        "donate": "https://contao-themes.net/sponsoring.html"
+    },
+    "scripts": {
+        "all": [
+            "@cs-fixer",
+            "@phpunit"
+        ],
+        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --fix --ansi",
+        "phpunit": "@php vendor\\bin\\phpunit --configuration phpunit.xml --coverage-text --log-junit report.xml"
+    },
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/user?u=28241718"
+        },
+        {
+            "type": "corporate",
+            "url": "https://contao-themes.net/sponsoring.html"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

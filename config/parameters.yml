@@ -1,0 +1,6 @@
+parameters:
+    font_awesome_config:
+        use:
+            icon_font: true
+            svg: false
+            js: false

@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        bind:
+            $fontAwesomeConfig: '%font_awesome_config%'
+
+    ContaoThemesNet\FontAwesomeInserttagBundle\:
+        resource: ../src/
