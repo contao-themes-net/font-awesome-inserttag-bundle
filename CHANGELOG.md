@@ -10,6 +10,8 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.0.0](https://github.com/contao-themes-net/bootstrap-icons-inserttag/tree/1.0.0) – 2022-09-14
+## [1.0.0](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.0.0) – 2022-09-14
 
-- [Added] first release
+- [Added] Use Font Awesome Version 6.2.0
+- [Added] Use of icon font, svg or img tag can be set via parameters.yml
+- [Added] Works with Contao 4.13 and Contao 5
