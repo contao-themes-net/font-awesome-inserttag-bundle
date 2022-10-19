@@ -1,6 +1,6 @@
 # Font Awesome Inserttag Bundle
 
-Dieses Bundle installiert ein InserTag, mit dessen Hilfe Font Awesome Icons als Font oder via SVG in Contao genutzt werden können.
+Dieses Bundle installiert einen InsertTag, mit dessen Hilfe Font Awesome Icons als Font oder via SVG in Contao genutzt werden können.
 
 ### About Font Awesome
 
