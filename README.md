@@ -35,8 +35,6 @@ der Seite **Font Awesome Icons** angegeben ist: https://fontawesome.com/search?m
 
     {{fa-solid::check}}
 
-Als Ergebnis sollte dieses Zeichen zu sehen sein: <img src='https://raw.githubusercontent.com/contao-themes-net/font-awesome-inserttag-bundle/main/public/svgs/solid/check.svg' width='20'>
-
 ### Der dritte Parameter &raquo;classes&laquo;
 ...**kann** (ist optional) eine oder mehrere CSS-Klassen-Namen enthalten. Für das Bereitstellen der Klasse müssen die Administratorinnen und
 Administratoren selbst Sorge tragen. Mehrere Klassen-Namen können wie im class-Attribute eines HTML-Tags notiert werden - also auch durch
