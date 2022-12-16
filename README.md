@@ -72,7 +72,7 @@ Zurzeit werden dort zwei Schlüssel ausgewertet. Der Schlüssel ``use`` und `loc
 Mit dem Schlüssel ``use`` können die Darstellungsmethoden der Icons festgelegt werden.
 Fallback ist ``icon_font: true``.
 Soll statt der Icon-Font die Methode SVG als Bild zum Einsatz kommen, so muss ``icon_font: false`` und ``svg: true`` gesetzt sein.
-Es werden nun img-Tags ausgegeben. Mittels `svg_sprites`: true und `svg: false` werden die Icons als [SVG-Sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites) eingebunden. Soll die Generierung der SVG Tags per Javascript erfolgen, kannst du zu `svg: true` zusätzlich ``js: true`` nutzen.
+Es werden nun img-Tags ausgegeben. Mittels `svg_sprites: true` und `svg: false` werden die Icons als [SVG-Sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites) eingebunden. Soll die Generierung der SVG Tags per Javascript erfolgen, kannst du zu `svg: true` zusätzlich ``js: true`` nutzen.
 
 Beispiele:
 
