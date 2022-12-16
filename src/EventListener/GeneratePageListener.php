@@ -48,11 +48,7 @@ class GeneratePageListener
     {
         extract($this->fontAwesomeConfig);
 
-        $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
-
-        if('' !== $local_source) {
-            $sourcePath = $local_source;
-        }
+        $sourcePath = $local_source;
 
         if (true === $use['icon_font']) {
             // use webfonts

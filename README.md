@@ -56,12 +56,12 @@ Diese wird wie folgt mitgeliefert:
 ```
 parameters:
     font_awesome_config:
+        local_source: ''
         use:
             icon_font: true
             svg: false
             svg_sprites: false
             js: false
-            local_source: ''
 ```
 
 Die Konfiguration befindet sich unterhalb des Schlüssels ``font_awesome_config``.
@@ -166,12 +166,12 @@ This is supplied as follows:
 ```
 parameters:
     font_awesome_config:
+        local_source: ''
         use:
             icon_font: true
             svg: false
             svg_sprites: false
             js: false
-            local_source: ''
 ```
 The configuration is located below the ``font_awesome_config`` key.
 

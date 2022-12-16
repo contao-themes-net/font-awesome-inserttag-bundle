@@ -79,11 +79,7 @@ class ReplaceInsertTagsListener
         if(false === $use['icon_font'] && ($use['svg'] || $use['svg_sprites']) && false === $use['js']) {
 
             $typeFolder = 'regular';
-            $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
-
-            if('' !== $local_source) {
-                $sourcePath = $local_source;
-            }
+            $sourcePath = $local_source;
 
             switch ($type) {
                 case 'fa-brands':
