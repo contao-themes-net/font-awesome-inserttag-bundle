@@ -15,12 +15,12 @@ License
 
 ### Allgemeine Form des Tags
 
-Das Tag beginnt mit dem Prefix ```&nbsp;fa ```&nbsp;und ihm folgen **drei weitere** Parameter. Parameter 1 und 2 sind
+Das Tag beginnt mit dem Prefix ```fa ``` und ihm folgen **drei weitere** Parameter. Parameter 1 und 2 sind
 erforderlich, Parameter 3 und 4 sind optional und können auch weggelassen werden. Das Tag besteht also insgesamt aus
 4 Parametern. Die allgemeine Form sieht so aus:
 
     {{fa::name::classes::styles}}
-    {{fa-brand::name::classes::styles}}
+    {{fa-brands::name::classes::styles}}
     {{fa-regular::name::classes::styles}}
     {{fa-solid::name::classes::styles}}
 
@@ -29,14 +29,13 @@ erforderlich, Parameter 3 und 4 sind optional und können auch weggelassen werde
 
 ### Der zweite Parameter &raquo;name&laquo;
 ...muss durch den Namen des Icons ersetzt werden. Dabei sollte der Name des Icons verwendet werden, wie er auf
-der Seite **font Awesome Icons** angegeben ist:https://fontawesome.com/search?m=free&o=r - also ohne Prefix ```fa-```!
+der Seite **Font Awesome Icons** angegeben ist: https://fontawesome.com/search?m=free&o=r - also ohne Prefix ```fa-```!
 
 **Beispiel:**
 
     {{fa-solid::check}}
 
-Als Ergebnis sollte dieses Zeichen zu sehen sein:
-![check.svg](src/Resources/public/img/bootstrap/check.svg)
+Als Ergebnis sollte dieses Zeichen zu sehen sein: <img src='https://raw.githubusercontent.com/contao-themes-net/font-awesome-inserttag-bundle/main/public/svgs/solid/check.svg' width='20'>
 
 ### Der dritte Parameter &raquo;classes&laquo;
 ...**kann** (ist optional) eine oder mehrere CSS-Klassen-Namen enthalten. Für das Bereitstellen der Klasse müssen die Administratorinnen und
@@ -47,57 +46,86 @@ Leerzeichen getrennt.
 
     {{fa-solid::check::class1 class2 class3}}
 
-####
 <div style="background:#FEB099;padding:4px;"><b>Achtung!</b>
-Die Vordergrundfarbe (color) kann für ein SVG-Element nicht durch das style-Attribute gesetzt werden!
+Die Vordergrundfarbe (color) kann für ein SVG-Element als Bild nicht durch das style-Attribute gesetzt werden!
 </div>
 
 ### Konfiguration
 
-Das Font Awesome Inserttag Bundle kann in geringem Umfang mit der **parameters.yml** konfiguriert werden.
+Das Font Awesome Inserttag Bundle kann mit der **parameters.yml** konfiguriert werden.
 Diese wird wie folgt mitgeliefert:
+
 ```
 parameters:
     font_awesome_config:
         use:
-            icon_font: false
-            svg: true
+            icon_font: true
+            svg: false
+            svg_sprites: false
             js: false
+            local_source: ''
 ```
+
 Die Konfiguration befindet sich unterhalb des Schlüssels ``font_awesome_config``.
 
-Zurzeit wird dort ein Schlüssel ausgewertet. Der Schlüssel ``use``.
+Zurzeit werden dort zwei Schlüssel ausgewertet. Der Schlüssel ``use`` und `local_source`.
 
 ### use
 Mit dem Schlüssel ``use`` können die Darstellungsmethoden der Icons festgelegt werden.
 Fallback ist ``icon_font: true``.
-**Es können aber (in der aktuellen Version) nicht beide Darstellungsmethoden zugleich verwendet werden!**
-Soll statt der Icon-Font die Methode SVG zum Einsatz kommen, so muss ``icon_font: false`` und ``svg: true`` gesetzt sein.
-Es werden nun img-Tags ausgegeben. Soll die Generierung der SVG Tags per Javascript erfolgen, kannst du zusätzlich ``js: true``
-nutzen.
+Soll statt der Icon-Font die Methode SVG als Bild zum Einsatz kommen, so muss ``icon_font: false`` und ``svg: true`` gesetzt sein.
+Es werden nun img-Tags ausgegeben. Mittels `svg_sprites`: true und `svg: false` werden die Icons als [SVG-Sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites) eingebunden. Soll die Generierung der SVG Tags per Javascript erfolgen, kannst du zu `svg: true` zusätzlich ``js: true`` nutzen.
 
-**Beispiel:**
+Beispiele:
 
-    <i class="fa fa-check class1 class2 class3"></i>
-    or
-    <img src="bundles/contaothemesnetfontawesomeinserttag/svgs/regular/phone.svg" class="fa-check class1 class2 class3" alt="phone">
-    or
-    <svg class="svg-inline--fa fa-check class1 class2 class3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" ... ></path></svg>
+**Icon Font**
+```
+<i class="fa fa-check class1 class2 class3"></i>
+```
 
+**SVG als Bild**
+```
+<img src="bundles/contaothemesnetfontawesomeinserttag/svgs/regular/phone.svg" class="fa-check class1 class2 class3" alt="phone">
+```
 
+**SVG-Sprites**
+```
+<svg class="icon class1 class2 class3">
+    <use xlink:href="bundles/contaothemesnetfontawesomeinserttag/sprites/solid.svg#phone"></use>
+</svg>
+```
+
+**SVG + JavaScript**
+```
+<svg style="display: none;">
+    <symbol data-fa-symbol="phone" class="svg-inline--fa fa-phone" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" id="phone">
+        <path fill="currentColor" ...></path>
+    </symbol>
+</svg>
+<!-- <i data-fa-symbol="phone" class="fa-solid fa-phone"></i> Font Awesome fontawesome.com -->
+<svg class="icon fa-2x"><use xlink:href="#phone"></use></svg>
+```
+
+### local_source
+
+Über `local_source: 'files/dein-pfad-zum-fontawesome-ordner'` kannst du den Pfad zu Font Awesome anpassen, um zum 
+Beispiel die Pro-Variante oder eine andere Font Awesome Version einzubinden. Gib dazu den kompletten Pfad ab files zum 
+Font Awesome Ordner, wo die Ordner css, js, svgs usw. enthalten sind, an. 
+
+------
 
 # Font Awesome Inserttag
 
-This bundle installs an InserTag that allows Font Awesome icons to be used as a font or via SVG in Contao.
+This bundle installs an InsertTag that allows Font Awesome icons to be used as a font or via SVG in Contao.
 
 ### General form of the tag
 
-The tag starts with the prefix ``&nbsp;fa ``&nbsp;and it is followed by **three more** parameters. Parameters 1 and 2 are
+The tag starts with the prefix ``fa `` and it is followed by **three more** parameters. Parameters 1 and 2 are
 required, parameters 3 and 4 are optional and can be omitted. So the tag consists of a total of
 4 parameters. The general form looks like this:
 
     {{fa::name::classes::styles}}
-    {{fa-brand::name::classes::styles}}
+    {{fa-brands::name::classes::styles}}
     {{fa-regular::name::classes::styles}}
     {{fa-solid::name::classes::styles}}
 
@@ -135,33 +163,57 @@ spaces.
 
 ### Configuration
 
-The Font Awesome Inserttag Bundle can be configured to a small extent using **parameters.yml**.
+The Font Awesome Inserttag Bundle can be configured using **parameters.yml**.
 This is supplied as follows:
 ```
 parameters:
     font_awesome_config:
         use:
-            icon_font: false
-            svg: true
-            js: true
+            icon_font: true
+            svg: false
+            svg_sprites: false
+            js: false
+            local_source: ''
 ```
 The configuration is located below the ``font_awesome_config`` key.
 
-Currently, two other keys are evaluated there. The ``source`` key and the ``use`` key.
+Currently, two other keys are evaluated there. The ``local_source`` key and the ``use`` key.
 
 ### use
-The ``use`` key can be used to define the two display methods of the icons.
+The ``use`` key can be used to define the four display methods of the icons.
 Fallback is ``icon_font: true``.
-**However (in the current version) both display methods cannot be used at the same time!
-If the SVG method is to be used instead of the icon font, ``icon_font: false`` and ``svg: true`` must be set.
-Now img tags will be output. If you want the SVG tags to be generated by Javascript, you can additionally use ``js: true``.
+If the SVG as image method is to be used instead of the icon font, ``icon_font: false`` and ``svg: true`` must be set.
+Now img tags will be output. Using `svg_sprites: true` and `svg: false` you can use icons included as 
+[svg sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites). 
+If you want the SVG tags to be generated by Javascript, you can use ``svg: true`` and ``js: true``.
 in addition.
 
-**Example:**
+Examples:
 
-    <i class="fa fa-check class1 class2 class3"></i>
-    or
-    <img src="bundles/contaothemesnetfontawesomeinserttag/svgs/regular/phone.svg" class="fa-check class1 class2 class3" alt="phone">
-    or
-    <svg class="svg-inline--fa fa-check class1 class2 class3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" ... ></path></svg>
+**Icon Font**
+```
+<i class="fa fa-check class1 class2 class3"></i>
+```
 
+**SVG as image**
+```
+<img src="bundles/contaothemesnetfontawesomeinserttag/svgs/regular/phone.svg" class="fa-check class1 class2 class3" alt="phone">
+```
+
+**SVG Sprites**
+```
+<svg class="icon class1 class2 class3">
+    <use xlink:href="bundles/contaothemesnetfontawesomeinserttag/sprites/solid.svg#phone"></use>
+</svg>
+```
+
+**SVG + JavaScript**
+```
+<svg style="display: none;">
+    <symbol data-fa-symbol="phone" class="svg-inline--fa fa-phone" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" id="phone">
+        <path fill="currentColor" ...></path>
+    </symbol>
+</svg>
+<!-- <i data-fa-symbol="phone" class="fa-solid fa-phone"></i> Font Awesome fontawesome.com -->
+<svg class="icon fa-2x"><use xlink:href="#phone"></use></svg>
+```

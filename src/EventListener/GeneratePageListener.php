@@ -48,15 +48,27 @@ class GeneratePageListener
     {
         extract($this->fontAwesomeConfig);
 
+        $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
+
+        if('' !== $local_source) {
+            $sourcePath = $local_source;
+        }
+
         if (true === $use['icon_font']) {
             // use webfonts
-            $GLOBALS['TL_CSS'][] = 'bundles/contaothemesnetfontawesomeinserttag/css/all.min.css';
+            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
+        }
+
+        if (false === $use['icon_font'] && ($use['svg'] || $use['svg_sprites']) && false === $use['js']) {
+            // use svg as image
+            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss';
         }
 
         if (false === $use['icon_font'] && $use['svg'] && $use['js']) {
             // use svg + js
-            $GLOBALS['TL_CSS'][] = 'bundles/contaothemesnetfontawesomeinserttag/css/svg-with-js.min.css';
-            $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/contaothemesnetfontawesomeinserttag/js/all.min.js';
+            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/svg-with-js.min.css';
+            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss';
+            $GLOBALS['TL_JAVASCRIPT']['fontawesome'] = $sourcePath.'/js/all.min.js';
         }
     }
 }
