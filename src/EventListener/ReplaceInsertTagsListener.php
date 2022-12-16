@@ -98,7 +98,7 @@ class ReplaceInsertTagsListener
             }
 
             if($use['svg_sprites']) {
-                return "<svg class='icon{$classes}'><use xlink:href='{$sourcePath}/sprites/{$typeFolder}.svg#{$name}'></use></svg>";
+                return "<svg class='icon{$classes}'$style><use xlink:href='{$sourcePath}/sprites/{$typeFolder}.svg#{$name}'></use></svg>";
             }
 
             return "<img src='{$sourcePath}/svgs/{$typeFolder}/{$name}.svg' class='icon-{$name}{$classes}'$style alt='$name'>";
@@ -106,7 +106,7 @@ class ReplaceInsertTagsListener
 
         // use svg + js
         if(false === $use['icon_font'] && $use['svg'] && $use['js']) {
-            return "<i data-fa-symbol='{$name}' class='{$type} fa-{$name}'></i><svg class='icon{$classes}'><use xlink:href='#{$name}'></use></svg>";
+            return "<i data-fa-symbol='{$name}' class='{$type} fa-{$name}'></i><svg class='icon{$classes}'$style><use xlink:href='#{$name}'></use></svg>";
         }
 
         return "<i>check your parameters.yml</i>";
