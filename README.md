@@ -48,6 +48,17 @@ Leerzeichen getrennt.
 Die Vordergrundfarbe (color) kann für ein SVG-Element als Bild nicht durch das style-Attribute gesetzt werden!
 </div>
 
+### Der vierte Parameter &raquo;styles&laquo;
+...**kann** (ist optional) eine oder mehrere Style-Angaben enthalten.
+
+**Beispiel:**
+
+    // for svg (svg: true)
+    {{fa-solid::check::fa-spin fa-3x fa-fw::width:50px;background-color:orangered;border-radius: 50px;}}
+
+    // for icon font
+    {{fa-solid::check::fa-spin fa-3x fa-fw::font-size:3em;background-color:orangered;border-radius: 50px;}}
+
 ### Konfiguration
 
 Das Font Awesome Inserttag Bundle kann mit der **parameters.yml** konfiguriert werden.
@@ -150,7 +161,7 @@ spaces.
 ### The fourth parameter &raquo;styles&laquo;
 ...**may** (is optional) contain one or more style statements.
 
-**Beispiel:**
+**Example:**
 
     // for svg (svg: true)
     {{fa-solid::check::fa-spin fa-3x fa-fw::width:50px;background-color:orangered;border-radius: 50px;}}
