@@ -81,11 +81,18 @@ class ReplaceInsertTagsListener
             $typeFolder = 'regular';
             $sourcePath = $local_source;
 
+            if(!isset($local_source)) {
+                $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
+            }
+
             switch ($type) {
                 case 'fa-brands':
+                case 'fab':
                     $typeFolder = 'brands';
                     break;
                 case 'fa-solid':
+                case 'fas':
+                case 'fa':
                     $typeFolder = 'solid';
                     break;
             }
