@@ -54,7 +54,7 @@ class GeneratePageListener
             $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
         }
 
-        if (true === $use['icon_font']) {
+        if ($use['icon_font']) {
             // use webfonts
             $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
         }

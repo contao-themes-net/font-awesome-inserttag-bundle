@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.1.1](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.1) – 2022-12-19
+
+- [Fixed] Fix pro icons
+
 ## [1.1.0](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.0) – 2022-12-16
 
 - [Added] Add [SVG Sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites) when using `svg_sprites: true`
