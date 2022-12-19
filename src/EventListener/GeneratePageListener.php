@@ -50,7 +50,7 @@ class GeneratePageListener
 
         $sourcePath = $local_source;
 
-        if(!isset($local_source)) {
+        if (!isset($local_source)) {
             $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
         }
 
