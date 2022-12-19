@@ -71,25 +71,42 @@ class ReplaceInsertTagsListener
         $style = empty($styles) ? '' : " style='$styles'";
 
         // use icon font
-        if(true === $use['icon_font'] || true === $use['svg'] && true === $use['js']) {
+        if($use['icon_font'] && false === $use['svg'] && false === $use['js']) {
             return "<i class='$type fa-$name{$classes}'$style></i>";
         }
 
         // use svg image
-        if(true === $use['svg']) {
+        if(false === $use['icon_font'] && ($use['svg'] || $use['svg_sprites']) && false === $use['js']) {
 
             $typeFolder = 'regular';
+            $sourcePath = $local_source;
+
+            if(!isset($local_source)) {
+                $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
+            }
 
             switch ($type) {
                 case 'fa-brands':
+                case 'fab':
                     $typeFolder = 'brands';
                     break;
                 case 'fa-solid':
+                case 'fas':
+                case 'fa':
                     $typeFolder = 'solid';
                     break;
             }
 
-            return "<img src='bundles/contaothemesnetfontawesomeinserttag/svgs/{$typeFolder}/{$name}.svg' class='fa-{$name}{$classes}'$style alt='$name'>";
+            if($use['svg_sprites']) {
+                return "<svg class='icon{$classes}'$style><use xlink:href='{$sourcePath}/sprites/{$typeFolder}.svg#{$name}'></use></svg>";
+            }
+
+            return "<img src='{$sourcePath}/svgs/{$typeFolder}/{$name}.svg' class='icon-{$name}{$classes}'$style alt='$name'>";
+        }
+
+        // use svg + js
+        if(false === $use['icon_font'] && $use['svg'] && $use['js']) {
+            return "<i data-fa-symbol='{$name}' class='{$type} fa-{$name}'></i><svg class='icon{$classes}'$style><use xlink:href='#{$name}'></use></svg>";
         }
 
         return "<i>check your parameters.yml</i>";

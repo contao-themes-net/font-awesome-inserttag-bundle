@@ -10,6 +10,13 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.1.0](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.0) – 2022-12-16
+
+- [Added] Add [SVG Sprites](https://fontawesome.com/docs/web/add-icons/svg-sprites) when using `svg_sprites: true`
+- [Added] Add [SVG Symbols](https://fontawesome.com/docs/web/add-icons/svg-symbols) when using `svg: true` and `js: true`
+- [Added] Add parameter `local_source` to define custom Font Awesome path
+- [Fixed] Fix svg images
+
 ## [1.0.0](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.0.0) – 2022-09-14
 
 - [Added] Use Font Awesome Version 6.2.0

@@ -1,6 +1,8 @@
 parameters:
     font_awesome_config:
+        local_source: 'bundles/contaothemesnetfontawesomeinserttag'
         use:
             icon_font: true
             svg: false
+            svg_sprites: false
             js: false
