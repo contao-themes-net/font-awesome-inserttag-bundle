@@ -49,6 +49,38 @@ class ReplaceInsertTagsListener
             return $this->replaceIconInsertTag($tag);
         }
 
+        if (preg_match('/^fa([bsrl]?)-duotone::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fa([bsrl]?)-light::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fa([bsrl]?)-sharp-solid::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fa([bsrl]?)-thin::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fad([bsrl]?)::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fat([bsrl]?)::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fal([bsrl]?)::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
+        if (preg_match('/^fass([bsrl]?)::/', $tag)) {
+            return $this->replaceIconInsertTag($tag);
+        }
+
         return false;
     }
 
@@ -95,9 +127,25 @@ class ReplaceInsertTagsListener
                 case 'fa':
                     $typeFolder = 'solid';
                     break;
+                case 'fa-duotone':
+                case 'fad':
+                    $typeFolder = 'duotone';
+                    break;
+                case 'fa-light':
+                case 'fal':
+                    $typeFolder = 'light';
+                    break;
+                case 'fa-sharp-solid':
+                case 'fass':
+                    $typeFolder = 'sharp-solid';
+                    break;
+                case 'fa-thin':
+                case 'fat':
+                    $typeFolder = 'thin';
+                    break;
             }
 
-            if($use['svg_sprites']) {
+            if($use['svg_sprites'] && 'duotone' !== $typeFolder) {
                 return "<svg class='icon{$classes}'$style><use xlink:href='{$sourcePath}/sprites/{$typeFolder}.svg#{$name}'></use></svg>";
             }
 
