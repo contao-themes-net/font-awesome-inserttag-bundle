@@ -62,14 +62,14 @@ class GeneratePageListener
         if (false === $use['icon_font'] && ($use['svg'] || $use['svg_sprites']) && false === $use['js']) {
             // use svg as image
             $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
-            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss';
+            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
         }
 
         if (false === $use['icon_font'] && $use['svg'] && $use['js']) {
             // use svg + js
-            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/svg-with-js.min.css';
-            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss';
-            $GLOBALS['TL_JAVASCRIPT']['fontawesome'] = $sourcePath.'/js/all.min.js';
+            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/svg-with-js.min.css|static';
+            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
+            $GLOBALS['TL_JAVASCRIPT']['fontawesome'] = $sourcePath.'/js/all.min.js|static';
         }
     }
 }
