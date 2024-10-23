@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.1.3](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.3) – 2024-10-10
+
+- [Fixed] Fix tree builder configuration [#93](https://github.com/contao-themes-net/nature-theme-bundle/issues/93)
+
 ## [1.1.2](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.2) – 2023-04-14
 
 - [Changed] Defined the assets as being static, so it can be combined with other static assets into one file.
