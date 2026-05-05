@@ -6,3 +6,4 @@ parameters:
             svg: false
             svg_sprites: false
             js: false
+            css: true

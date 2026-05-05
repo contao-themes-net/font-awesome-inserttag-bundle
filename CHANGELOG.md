@@ -10,9 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.1.4](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.4) – 2025-03-28
+## [1.1.4](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.4) – 2026-05-05
 
 - [Changed] Update Font Awesome Version from 6.2.0 to 6.7.2
+- [Added] New configuration parameter `css`: Allows disabling the automatic inclusion of the Font Awesome CSS file
 
 ## [1.1.3](https://github.com/contao-themes-net/font-awesome-inserttag-bundle/tree/1.1.3) – 2024-10-10
 

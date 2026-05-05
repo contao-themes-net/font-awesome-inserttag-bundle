@@ -149,7 +149,7 @@ class ReplaceInsertTagsListener
                 return "<svg class='icon{$classes}'$style><use xlink:href='{$sourcePath}/sprites/{$typeFolder}.svg#{$name}'></use></svg>";
             }
 
-            return "<img src='{$sourcePath}/svgs/{$typeFolder}/{$name}.svg' class='icon-{$name}{$classes}'$style alt='$name'>";
+            return "<img src='{$sourcePath}/svgs/{$typeFolder}/{$name}.svg' class='icon-{$name}{$classes}'$style alt='$name' width='25' height='25'>";
         }
 
         // use svg + js
