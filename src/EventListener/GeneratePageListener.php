@@ -54,21 +54,26 @@ class GeneratePageListener
             $sourcePath = 'bundles/contaothemesnetfontawesomeinserttag';
         }
 
-        if ($use['icon_font']) {
+        if ($use['icon_font'] && ($use['css'] || !isset($use['css']))) {
             // use webfonts
             $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
         }
 
         if (false === $use['icon_font'] && ($use['svg'] || $use['svg_sprites']) && false === $use['js']) {
             // use svg as image
-            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
-            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
+            if ($use['css'] || !isset($use['css'])) {
+                $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/all.min.css|static';
+                $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
+            }
         }
 
         if (false === $use['icon_font'] && $use['svg'] && $use['js']) {
             // use svg + js
-            $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/svg-with-js.min.css|static';
-            $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
+            if ($use['css'] || !isset($use['css'])) {
+                $GLOBALS['TL_CSS']['fontawesome'] = $sourcePath.'/css/svg-with-js.min.css|static';
+                $GLOBALS['TL_CSS']['fontawesome-bundle'] = 'bundles/contaothemesnetfontawesomeinserttag/scss/style.scss|static';
+            }
+
             $GLOBALS['TL_JAVASCRIPT']['fontawesome'] = $sourcePath.'/js/all.min.js|static';
         }
     }
